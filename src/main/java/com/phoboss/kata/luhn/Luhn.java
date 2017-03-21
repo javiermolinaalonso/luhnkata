@@ -11,4 +11,12 @@ public class Luhn {
         return StringUtils.reverse(input);
     }
 
+    public int sumOdd(String input) {
+        int result = 0;
+        for (int i = 0; i < input.length(); i+=2) {
+            result += Integer.valueOf(input.substring(i, i+1));
+        }
+
+        return result;
+    }
 }
