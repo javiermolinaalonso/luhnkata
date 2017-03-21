@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jmolina on 21/3/17.
  */
-public class TestLuhn {
+public class TestCardNumberValidator {
 
     private CardNumberValidator cardNumberValidator;
 
