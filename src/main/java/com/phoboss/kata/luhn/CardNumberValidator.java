@@ -5,13 +5,15 @@ package com.phoboss.kata.luhn;
  */
 public class CardNumberValidator {
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public boolean validate(String cardNumber) {
-        try{
+        boolean result = true;
+        try {
             Long.parseLong(cardNumber);
         } catch (NumberFormatException nfe) {
-            return false;
+            result = false;
         }
-        return true;
+        return result;
     }
 
 }
