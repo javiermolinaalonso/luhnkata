@@ -3,6 +3,7 @@ package com.phoboss.kata.luhn;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -22,10 +23,20 @@ public class TestLuhn {
     @Test
     public void givenCardNumberWhenCheckInputExpectTrue() throws Exception {
 
-        String cardNumber = "135743824834";
+        String cardNumber = "12000000000";
 
         boolean isCardNumberValid = cardNumberValidator.validate(cardNumber);
 
-        assertTrue(isCardNumberValid);
+        assertTrue("The card number should be a number", isCardNumberValid);
+    }
+
+    @Test
+    public void givenRandomTextWhenCheckInputExpectFalse() throws Exception {
+
+        String cardNumber = "HolaTocateLaCola";
+
+        boolean isCardNumberValid = cardNumberValidator.validate(cardNumber);
+
+        assertFalse("The card number should be a number", isCardNumberValid);
     }
 }

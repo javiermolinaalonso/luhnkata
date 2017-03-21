@@ -6,6 +6,11 @@ package com.phoboss.kata.luhn;
 public class CardNumberValidator {
 
     public boolean validate(String cardNumber) {
+        try{
+            Long.parseLong(cardNumber);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
         return true;
     }
 
