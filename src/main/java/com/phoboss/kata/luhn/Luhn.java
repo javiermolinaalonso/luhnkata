@@ -14,12 +14,7 @@ public class Luhn {
     }
 
     public int sumOdd(String input) {
-        int result = getResult(input, Function.identity(), 1, 0);
-        return result;
-    }
-
-    private int getAnInt(String input, int i, int multiplier, Function<Integer, Integer> f) {
-        return f.apply(Integer.valueOf(input.substring(i, i + 1)) * multiplier);
+        return getResult(input, Function.identity(), 1, 0);
     }
 
     public int sumEven(String input) {
@@ -29,7 +24,7 @@ public class Luhn {
     private int getResult(String input, Function<Integer, Integer> function, Integer multiplier, Integer origin) {
         int result = 0;
         for (int i = origin; i < input.length(); i += 2) {
-            int valueOf = getAnInt(input, i, multiplier, function);
+            int valueOf = function.apply(Integer.valueOf(input.substring(i, i + 1)) * multiplier);
             result += valueOf;
         }
         return result;
