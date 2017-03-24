@@ -25,14 +25,4 @@ public class TestLuhn {
 
         assertEquals("The reverse is not working", "!dlrow olleH", result);
     }
-
-    @Test
-    public void givenRandomCardNumberWhenSumOddPositionsThenCorrectSum() throws Exception {
-        String input = "123456789";
-
-        int result = luhn.sumOdd(input);
-
-        assertEquals("Odd numbers sum", 25, result);
-
-    }
 }

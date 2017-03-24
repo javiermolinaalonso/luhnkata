@@ -19,4 +19,17 @@ public class Luhn {
 
         return result;
     }
+
+    public int sumEven(String input) {
+        int result = 0;
+        for (int i = 1; i < input.length(); i+=2){
+            int valueOf = Integer.valueOf(input.substring(i, i+1))*2;
+            if(valueOf > 9)
+                valueOf = (valueOf - 10) + 1;
+
+            result += valueOf;
+        }
+
+        return result;
+    }
 }
