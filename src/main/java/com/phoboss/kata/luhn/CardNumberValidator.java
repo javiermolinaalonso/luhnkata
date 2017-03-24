@@ -7,13 +7,8 @@ public class CardNumberValidator {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public boolean validate(String cardNumber) {
-        boolean result = true;
-        try {
-            Long.parseLong(cardNumber);
-        } catch (NumberFormatException nfe) {
-            result = false;
-        }
-        return result;
+        String regex = "\\d+";
+        return cardNumber.matches(regex);
     }
 
 }
