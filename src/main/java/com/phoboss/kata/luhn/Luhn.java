@@ -16,15 +16,7 @@ public class Luhn {
     public int sumOdd(String input) {
         int result = 0;
         for (int i = 0; i < input.length(); i += 2) {
-
-            Function f = new Function<Integer, Integer>() {
-                @Override
-                public Integer apply(Integer valueOf) {
-                    return valueOf;
-                }
-            };
-
-            int valueOf = getAnInt(input, i, 1, f);
+            int valueOf = getAnInt(input, i, 1, Function.identity());
             result += valueOf;
         }
 
@@ -38,16 +30,7 @@ public class Luhn {
     public int sumEven(String input) {
         int result = 0;
         for (int i = 1; i < input.length(); i += 2) {
-            Function f = new Function<Integer, Integer>() {
-                @Override
-                public Integer apply(Integer valueOf) {
-                    if (valueOf > 9)
-                        return (valueOf - 10) + 1;
-                    else
-                        return valueOf;
-                }
-            };
-            int valueOf = getAnInt(input, i, 2, f);
+            int valueOf = getAnInt(input, i, 2, x -> x > 9 ? x - 9 : x);
             result += valueOf;
         }
 
