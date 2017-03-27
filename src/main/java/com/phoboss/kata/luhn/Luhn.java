@@ -19,15 +19,15 @@ public class Luhn {
         this.cardNumberValidator = cardNumberValidator;
     }
 
-    public String reverse(String input) {
+    String reverse(String input) {
         return StringUtils.reverse(input);
     }
 
-    public int sumOdd(String input) {
+    int sumOdd(String input) {
         return computeLuhn(input, Function.identity(), 1, 0);
     }
 
-    public int sumEven(String input) {
+    int sumEven(String input) {
         return computeLuhn(input, x -> x > 9 ? x - 9 : x, 2, 1);
     }
 
